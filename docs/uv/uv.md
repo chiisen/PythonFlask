@@ -38,3 +38,10 @@ uv python uninstall 3.10
 ```shell
 uv python uninstall 3.10 3.11
 ```
+uv 會依據它所可以找到的 Python 環境來執行，基本上的順序如下：
+
+1. 目前資料夾下的 .python-version 檔內(pyenv)設定的版本。
+2. 目前啟用的虛擬環境。
+3. 目前資料夾下的 .venv 資料夾內設定的虛擬環境。
+4. uv 自己安裝的 Python。
+5. 系統環境變數設定的 Python 環境。
