@@ -8,6 +8,11 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 scoop install uv
 ```
 
+## 更新 uv 自己的版本
+```shell
+uv self update # 更新 uv
+```
+
 ## 使用 uv 管理多個 Python 環境版本
 顯示可安裝以及已安裝的 Python 版本：
 ```shell
@@ -38,6 +43,16 @@ uv python uninstall 3.10
 ```shell
 uv python uninstall 3.10 3.11
 ```
+
+# 使用 uv 替代 python/pip 工具
+uv 管理的 Python 環境並不能直接透過 python 指令執行，必須透過 uv 來執行。
+```shell
+uv run .\src\show_version.py
+```
+執行時透過 --python 引數指定 Python 版本：
+```shell
+uv run --python 3.10 .\src\show_version.py
+```
 uv 會依據它所可以找到的 Python 環境來執行，基本上的順序如下：
 
 1. 目前資料夾下的 .python-version 檔內(pyenv)設定的版本。
@@ -47,6 +62,7 @@ uv 會依據它所可以找到的 Python 環境來執行，基本上的順序如
 5. 系統環境變數設定的 Python 環境。
 
 如果指定的版本不存在，uv 會自動安裝相符的 Python，因此你可以看到上述例子中雖然之前移除了 3.10 版，但仍然可以執行。
+
 如果沒有指定版本，執行 Python 程式時就會使用比較新的版本。
 
 查看已安裝的版本：
