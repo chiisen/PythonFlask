@@ -12,6 +12,7 @@ Python Flask 入門指南 : 輕量級網頁框架教學
 ```shell
 uv run --with Flask .\src\flask\flask_hello.py
 ```
+[flask_hello.py](./src/flask/flask_hello.py)  
 瀏覽網址 http://127.0.0.1:5000  
 拿掉 `flask_hello.py` 中的 `port=5000` 可以改由 uv 指令指定 port  
 ```shell
