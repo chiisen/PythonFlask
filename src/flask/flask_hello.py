@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -9,12 +9,12 @@ logger.info("Flask app logger initialized")
 app = Flask(__name__)
 @app.route("/")
 def hello():
-    return "Hello, World!"
+    return jsonify({"message": "Hello, World!"})
 
 # 新增一個 /hello 的路由，當使用者瀏覽 /hello 時會執行此函式
 @app.route("/hello")
 def say_hello():
-    return "Hello from /hello route!"
+    return jsonify({"message": "Hello from /hello route!"})
 
 # 當這個檔案被直接執行時，__name__ 會等於 "__main__"
 # 如果這個檔案是被其他模組 import，__name__ 會等於檔案名稱 (例如 flask_hello)

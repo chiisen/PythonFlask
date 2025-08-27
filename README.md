@@ -35,3 +35,5 @@ uv run --with Flask .\src\flask\flask_hello.py --port 5000
 
 ---
 
+# 新增測試檔案
+[requestLocal.http](./requestLocal.http)  
